@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CacheComparisonComponent } from './cache-comparison.component';
+import { DBCacheComparisonComponent } from './db-cache-comparison.component';
 
 describe('CacheComparisonComponent', () => {
-  let component: CacheComparisonComponent;
-  let fixture: ComponentFixture<CacheComparisonComponent>;
+  let component: DBCacheComparisonComponent;
+  let fixture: ComponentFixture<DBCacheComparisonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CacheComparisonComponent]
+      imports: [DBCacheComparisonComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CacheComparisonComponent);
+    fixture = TestBed.createComponent(DBCacheComparisonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

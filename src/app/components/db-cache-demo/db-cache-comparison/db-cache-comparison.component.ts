@@ -1,7 +1,7 @@
 import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 
-interface CacheStrategy {
+interface DBCacheStrategy {
   name: string;
   description: string;
   cache: number | null;
@@ -13,14 +13,14 @@ interface CacheStrategy {
 }
 
 @Component({
-  selector: 'app-cache-comparison',
+  selector: 'app-db-cache-comparison',
   standalone: true,
   imports: [NgFor],
-  templateUrl: './cache-comparison.component.html',
-  styleUrl: './cache-comparison.component.scss'
+  templateUrl: './db-cache-comparison.component.html',
+  styleUrl: './db-cache-comparison.component.scss'
 })
-export class CacheComparisonComponent {
-  strategies: CacheStrategy[] = [
+export class DBCacheComparisonComponent {
+  strategies: DBCacheStrategy[] = [
     { name: 'No Cache', description: 'Direct database access', cache: null },
     { name: 'Cache-Aside', description: 'Check cache first, update cache on miss', cache: null },
     { name: 'Read-Through', description: 'Cache automatically loads from DB on miss', cache: null },
@@ -102,7 +102,7 @@ export class CacheComparisonComponent {
     });
   }
 
-  private cacheAsideRead(strategy: CacheStrategy, key: string): any {
+  private cacheAsideRead(strategy: DBCacheStrategy, key: string): any {
     /*
     if (strategy.cache.has(key)) {
       return new Promise(resolve => {
@@ -119,12 +119,12 @@ export class CacheComparisonComponent {
     */  
   }
 
-  private cacheAsideWrite(strategy: CacheStrategy, key: string, value: any): void {
+  private cacheAsideWrite(strategy: DBCacheStrategy, key: string, value: any): void {
     // strategy.cache.set(key, value);
     this.simulateDbWrite(key, value);
   }
 
-  private readThroughCache(strategy: CacheStrategy, key: string): any {
+  private readThroughCache(strategy: DBCacheStrategy, key: string): any {
     /*
     if (strategy.cache.has(key)) {
       return new Promise(resolve => {
@@ -141,19 +141,19 @@ export class CacheComparisonComponent {
       */
   }
 
-  private writeThroughCache(strategy: CacheStrategy, key: string, value: any): void {
+  private writeThroughCache(strategy: DBCacheStrategy, key: string, value: any): void {
     // strategy.cache.set(key, value);
     this.simulateDbWrite(key, value);
   }
 
-  private writeBehindCache(strategy: CacheStrategy, key: string, value: any): void {
+  private writeBehindCache(strategy: DBCacheStrategy, key: string, value: any): void {
     // strategy.cache.set(key, value);
     setTimeout(() => {
       this.simulateDbWrite(key, value);
     }, 0); // Simulate async write
   }
 
-  private updateMetrics(strategy: CacheStrategy, operation: 'read' | 'write', responseTime: number) {
+  private updateMetrics(strategy: DBCacheStrategy, operation: 'read' | 'write', responseTime: number) {
     /*
     strategy.metrics.totalOperations++;
     if (operation === 'read') {

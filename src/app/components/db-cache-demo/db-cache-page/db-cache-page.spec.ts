@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DataStoreComponent } from './data-store.component';
+import { DBCachePageComponent } from './db-cache-page.component';
 
-describe('DataStoreComponent', () => {
-  let component: DataStoreComponent;
-  let fixture: ComponentFixture<DataStoreComponent>;
+describe('DBCachePageComponent', () => {
+  let component: DBCachePageComponent;
+  let fixture: ComponentFixture<DBCachePageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DataStoreComponent]
+      imports: [DBCachePageComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DataStoreComponent);
+    fixture = TestBed.createComponent(DBCachePageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

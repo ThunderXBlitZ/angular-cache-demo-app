@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { generateIntBetweenInclusive } from '../../../utils/utils';
 
 @Component({
-  selector: 'app-data-store',
+  selector: 'app-db-data-store',
   standalone: true,
   imports: [],
-  templateUrl: './data-store.component.html',
-  styleUrl: './data-store.component.scss'
+  templateUrl: './db-data-store.component.html',
+  styleUrl: './db-data-store.component.scss'
 })
-export class DataStoreComponent {
+export class DBDataStoreComponent {
   dbValue: number | null;
 
   constructor() {
